@@ -1,0 +1,54 @@
+{
+  "name": "grunt-simple-istanbul",
+  "version": "0.0.1",
+  "description": "A grunt wrapper for istanbul",
+  "main": "./tasks/istanbul.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tandrewnichols/grunt-simple-istanbul.git"
+  },
+  "keywords": [
+    "grunt",
+    "gruntplugin",
+    "istanbul",
+    "coverage"
+  ],
+  "author": {
+    "name": "Andrew Nichols",
+    "email": "tandrewnichols@gmail.com",
+    "url": "www.tandrewnichols.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tandrewnichols/grunt-simple-istanbul/issues"
+  },
+  "homepage": "https://github.com/tandrewnichols/grunt-simple-istanbul",
+  "dependencies": {
+    "simple-cli": "^0.1.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-mocha-cov": "^0.3.0",
+    "grunt-mocha-test": "^0.12.2",
+    "grunt-travis-matrix": "0.0.4",
+    "indeed": "^1.0.6",
+    "jshint-stylish": "^1.0.0",
+    "mocha": "^2.0.1",
+    "mocha-given": "^0.1.3",
+    "mocha-lcov-reporter": "0.0.1",
+    "proxyquire": "^1.0.1",
+    "sinon": "^1.10.3"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "grunt-simple-istanbul/tasks"
+      ]
+    }
+  }
+}
