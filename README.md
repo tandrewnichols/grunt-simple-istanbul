@@ -4,7 +4,7 @@
 
 # grunt-simple-istanbul
 
-A simple API for using npm via grunt
+A grunt wrapper for istanbul
 
 ## Getting Started
 
@@ -28,7 +28,7 @@ This module uses the [simple-cli](https://github.com/tandrewnichols/simple-cli) 
 
 ### Overview
 
-The `istanbul` task is a multiTask, where the target is (usually) the npm command to run. You can configure as many istanbul commands as are useful to you either in your `grunt.initConfig` call or, as mentioned above, by using [task-master](https://github.com/tandrewnichols/task-master). I strongly recommend using task-master . . . not just because I wrote it. I wrote it because grunt configuration is messy and annoying and sometimes, at least with `loadNpmTasks`, redundant (I was shocked to learn that you can't pass more than one string to `loadNpmTasks` - it's plural . . . doesn't that mean I should be able to do `grunt.loadNpmTasks('grunt-foo', 'grunt-bar', 'grunt-baz')`? . . . apparently not). I've been using task-master for everything I write now for a few months, and it just makes grunt more pleasurable to use. Things are nicely separated . . . but I digress. Here's a sample configuration:
+The `istanbul` task is a multiTask, where the target is (usually) the istanbul command to run. You can configure as many istanbul commands as are useful to you either in your `grunt.initConfig` call or, as mentioned above, by using [task-master](https://github.com/tandrewnichols/task-master). I strongly recommend using task-master . . . not just because I wrote it. I wrote it because grunt configuration is messy and annoying and sometimes, at least with `loadNpmTasks`, redundant (I was shocked to learn that you can't pass more than one string to `loadNpmTasks` - it's plural . . . doesn't that mean I should be able to do `grunt.loadNpmTasks('grunt-foo', 'grunt-bar', 'grunt-baz')`? . . . apparently not). I've been using task-master for everything I write now for a few months, and it just makes grunt more pleasurable to use. Things are nicely separated . . . but I digress. Here's a sample configuration:
 
 ```javascript
 grunt.initConfig({
