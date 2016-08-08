@@ -3,8 +3,10 @@ sudo: false
 before_install:
   - "export CODECLIMATE_REPO_TOKEN=b89e0fdcb9223b8aca94b62ec7c6dd48255c50a7ccdd7f029d382308c5febe8d"
 install:
+  - "npm install -g npm@latest"
   - "npm install grunt-cli codeclimate-test-reporter -g"
   - "npm install"
+  - "npm explore grunt-mocha-cov -- npm install mocha@latest"
 script:
   - "grunt ci"
 node_js:
