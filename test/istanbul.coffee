@@ -6,6 +6,7 @@ describe 'istanbul', ->
   Given -> @subject = sandbox '../tasks/istanbul',
     'simple-cli': @cli
 
-  Then -> expect(@cli).to.have.been.calledWith
+  Then -> @cli.calledWith(
     task: 'istanbul'
     cmd: "#{root}/node_modules/.bin/istanbul"
+  ).should.be.true
