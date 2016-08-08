@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-cov');
   grunt.loadNpmTasks('grunt-travis-matrix');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-test-matrix');
 
   grunt.initConfig({
     jshint: {
@@ -58,6 +59,11 @@ module.exports = function(grunt) {
     },
     shell: {
       codeclimate: 'codeclimate-test-reporter < coverage/coverage.lcov'
+    },
+    testMatrix: {
+      mocha: {
+        task: 'mocha'
+      }
     }
   });
 
