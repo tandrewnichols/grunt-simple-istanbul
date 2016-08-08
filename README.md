@@ -28,23 +28,42 @@ This module uses the [simple-cli](https://github.com/tandrewnichols/simple-cli) 
 
 ### Overview
 
-The `istanbul` task is a multiTask, where the target is (usually) the istanbul command to run. You can configure as many istanbul commands as are useful to you either in your `grunt.initConfig` call or, as mentioned above, by using [task-master](https://github.com/tandrewnichols/task-master). I strongly recommend using task-master . . . not just because I wrote it. I wrote it because grunt configuration is messy and annoying and sometimes, at least with `loadNpmTasks`, redundant (I was shocked to learn that you can't pass more than one string to `loadNpmTasks` - it's plural . . . doesn't that mean I should be able to do `grunt.loadNpmTasks('grunt-foo', 'grunt-bar', 'grunt-baz')`? . . . apparently not). I've been using task-master for everything I write now for a few months, and it just makes grunt more pleasurable to use. Things are nicely separated . . . but I digress. Here's a sample configuration:
+The `istanbul` task is a multiTask, where the target is the istanbul command to run. You can configure as many istanbul commands as are useful to you either in your `grunt.initConfig` call or, as mentioned above, by using [task-master](https://github.com/tandrewnichols/task-master). Options to the istanbul binary go under options. However, the special key `simple` indicates how this task should be run. See the examples below or the documentation for [simple-cli](https://github.com/tandrewnichols/simple-cli).
 
 ```javascript
 grunt.initConfig({
   istanbul: {
+    // istanbul instrument app --output instrumented -x **/node_modules/** -x **/coverage/** -x **/instrumented/** --no-compact true
     instrument: {
       options: {
         output: 'instrumented',
         x: ['**/node_modules/**', '**/coverage/**', '**/instrumented/**'],
-        noCompact: true
-      },
-      cmd: 'instrument app'
+        noCompact: true,
+        simple: {
+          args: ['app']
+        }
+      }
+    },
+    // istanbul report --root /Users/foo/bar/my-repo/coverage --dir /Users/foo/bar/my-repo/coverage
+    report: {
+      options: {
+        root: __dirname + '/coverage',
+        dir: __dirname + '/coverage'
+      }
+    },
+    // istanbul cover grunt coverage:unit --hook-run-in-context --root server --dir /Users/foo/bar/my-repo/coverage/unit -x **/node_modules/** -x **/public/** -x **/instrumented/**
+    coverUnit: {
+      options: {
+        hookRunInContext: true,
+        root: 'server'
+        dir: __dirname + '/coverage/unit',
+        x: ['**/node_modules/**', '**/public/**', '**/instrumented/**'],
+        simple: {
+          cmd: 'cover'
+          args: ['grunt', 'coverage:unit']
+        }
+      }
     }
   }
 });
 ```
-
-### Options
-
-Any istanbul option can be specified, though there are some variations. See [simple-cli](https://github.com/tandrewnichols/simple-cli) for documentation on how to pass options.
