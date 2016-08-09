@@ -28,7 +28,7 @@
   "homepage": "https://github.com/tandrewnichols/grunt-simple-istanbul",
   "dependencies": {
     "istanbul": "^0.4.4",
-    "simple-cli": "^2.0.0"
+    "simple-cli": "^2.0.1"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",
