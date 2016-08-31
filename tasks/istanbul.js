@@ -1,9 +1,11 @@
 var cli = require('simple-cli');
 var path = require('path');
-var exec = require('child_process').execSync;
-var binPath = exec('npm bin').toString().split('\n')[0];
+
+// Assures we can find the istanbul binary whether it's installed in this modules
+// dependencies (ala npm 2) or the dependee's dependencies (ala npm 3).
+var binPath = require.resolve('istanbul').replace('istanbul/index.js', '.bin/istanbul');
 
 module.exports = cli({
   task: 'istanbul',
-  cmd: path.join(binPath, 'istanbul')
+  cmd: path.normalize(binPath)
 });
