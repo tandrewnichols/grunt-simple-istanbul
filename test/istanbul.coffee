@@ -8,5 +8,6 @@ describe 'istanbul', ->
 
   Then -> @cli.calledWith(
     task: 'istanbul'
+    description: 'A grunt wrapper for istanbul'
     cmd: "#{root}/node_modules/.bin/istanbul"
   ).should.be.true

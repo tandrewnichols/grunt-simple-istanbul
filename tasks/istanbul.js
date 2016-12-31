@@ -7,5 +7,6 @@ var binPath = require.resolve('istanbul').replace('istanbul/index.js', '.bin/ist
 
 module.exports = cli({
   task: 'istanbul',
+  description: 'A grunt wrapper for istanbul',
   cmd: path.normalize(binPath)
 });
