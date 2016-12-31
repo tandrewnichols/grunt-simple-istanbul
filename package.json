@@ -1,6 +1,6 @@
 {
   "name": "grunt-simple-istanbul",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "A grunt wrapper for istanbul",
   "main": "./tasks/istanbul.js",
   "scripts": {
